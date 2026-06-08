@@ -8,7 +8,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0f0f1a; color: #e8e8f0; font-size: 16px; line-height: 1.5; }
-    header { background: #1a1a2e; border-bottom: 3px solid #e74c3c; padding: 18px 16px 14px; position: sticky; top: 0; z-index: 10; position: relative; display: flex; align-items: center; justify-content: space-between; }
+    header { background: #1a1a2e; border-bottom: 3px solid #e74c3c; padding: 18px 16px 14px; position: relative; display: flex; align-items: center; justify-content: space-between; }
     header h1 { font-size: 1.35rem; color: #e74c3c; letter-spacing: 1px; }
     header p { font-size: 0.8rem; color: #666; margin-top: 3px; }
     .menu-btn { background: none; border: none; color: #e8e8f0; font-size: 1.5rem; cursor: pointer; padding: 8px; line-height: 1; }
@@ -18,12 +18,20 @@
     .nav-menu a { display: block; padding: 14px 16px; color: #e8e8f0; text-decoration: none; font-size: 0.95rem; border-top: 1px solid #2a2a4e; }
     .nav-menu a.current { color: #e74c3c; font-weight: 700; }
     .nav-menu a:active { background: #2a2a4e; }
+
+    .region-divider { margin: 24px 16px 8px; display: flex; align-items: center; gap: 10px; }
+    .region-divider h3 { font-size: 0.75rem; color: #e74c3c; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; white-space: nowrap; }
+    .region-divider::after { content: ''; flex: 1; height: 1px; background: #2a2a4e; }
+
     .day-card { margin: 16px; background: #1a1a2e; border-radius: 12px; overflow: hidden; border: 1px solid #2a2a4e; }
     .day-header { padding: 13px 16px; background: #16213e; border-bottom: 1px solid #2a2a4e; }
     .day-header h2 { font-size: 0.95rem; color: #e74c3c; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
     .badge { font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
     .badge-offroad { background: #e65100; color: #fff; }
     .badge-verified { background: #1565c0; color: #fff; }
+    .badge-expert { background: #b71c1c; color: #fff; }
+    .badge-moderate { background: #1b5e20; color: #fff; }
+    .badge-easy { background: #1a237e; color: #fff; }
     .subtitle { font-size: 1.08rem; font-weight: 700; color: #fff; margin-top: 5px; }
     .meta { font-size: 0.8rem; color: #999; margin-top: 3px; }
     .thumbs { border-bottom: 1px solid #2a2a4e; }
@@ -35,13 +43,11 @@
     .prose { font-size: 0.9rem; color: #ccc; line-height: 1.7; margin-bottom: 12px; }
     .fuel { font-size: 0.86rem; color: #bbb; margin-bottom: 6px; }
     .hazards { font-size: 0.86rem; color: #f39c12; margin-bottom: 4px; }
+    .best-time { font-size: 0.86rem; color: #7cb8e8; margin-bottom: 4px; }
     .links { margin-top: 18px; display: flex; flex-direction: column; gap: 11px; }
     .nav-link { display: block; padding: 15px 18px; border-radius: 10px; font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; color: #fff; }
     .nav-link:active { opacity: 0.75; transform: scale(0.98); }
-    .monitoring { margin: 16px; padding: 15px; background: #1a1a2e; border-radius: 12px; border: 1px solid #2a2a4e; font-size: 0.84rem; color: #999; }
-    .monitoring h3 { color: #e74c3c; margin-bottom: 9px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
-    .monitoring p { margin-bottom: 5px; }
-    .monitoring a { color: #3498db; text-decoration: none; }
+    .nav-link span { display: block; font-size: 0.72rem; font-weight: 400; opacity: 0.85; margin-top: 3px; }
 
     .upload-section { margin: 16px; padding: 16px; background: #1a1a2e; border-radius: 12px; border: 2px solid #e74c3c; }
     .upload-section h3 { color: #e74c3c; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
@@ -83,7 +89,7 @@
 <header>
   <div>
     <h1>🏍 EURO BIKE BLAST 2026</h1>
-    <p>Sean Wagstaff · A MotoMap Guide</p>
+    <p>Sean Wagstaff · Triumph Tiger 900 Rally · A MotoMap Guide</p>
   </div>
   <button class="menu-btn" onclick="toggleMenu()" aria-label="Switch project">☰</button>
   <nav class="nav-menu" id="navMenu">
@@ -95,39 +101,357 @@
   </nav>
 </header>
 
-  <section class="day-card">
-    <div class="day-header">
-      <h2>ITALY — DOLOMITES &amp; STELVIO <span class="badge badge-verified">VERIFIED</span></h2>
-      <p class="subtitle">Cortina d'Ampezzo · Giau Pass · Arabba · South Tyrol · Stelvio Pass · Bormio</p>
-      <p class="meta">~311 km · ~6.5h · Dolomites, Alpine passes, South Tyrol valley roads</p>
-    </div>
-    <div class="thumbs">
-      <div class="thumb-block">
-        <div class="thumb-label">Cortina → Giau Pass → Arabba → Bolzano → Vipiteno → St. Leonhard → Prad am Stilfser Joch → Bormio</div>
-        <img src="thumb_italy_dolomites.png" alt="Italy Dolomites and Stelvio Pass motorcycle route" loading="lazy">
-      </div>
-    </div>
-    <div class="day-info">
-      <p class="prose">An epic Alpine stage linking two of Europe's greatest motorcycle roads. The route opens in Cortina d'Ampezzo — the jewel of the Dolomites — before climbing the legendary Giau Pass (2,236m), one of the most dramatic switchback roads in Italy. After sweeping through Arabba and the Sella Ronda circuit, the route drops into the South Tyrol (Alto Adige) for a long valley run north through Bolzano, Vipiteno and the Passeier Valley. The finale is Stelvio Pass (2,757m) — the highest paved road in the Alps — descending into Bormio for the night.</p>
-      <p class="fuel">⛽ <strong>Fuel:</strong> Cortina · Arabba · Bolzano · Vipiteno · Bormio</p>
-      <p class="hazards">⚠️ <strong>Hazards:</strong> Giau Pass: narrow road, livestock &amp; cyclists · Stelvio (SS38): heavy motorcycle traffic in summer, cold at summit even in July · South Tyrol valley roads: fast traffic, watch lane discipline</p>
-      <div class="links">
-        <a href="https://www.google.com/maps/dir/Cortina+d'Ampezzo,+32043+Province+of+Belluno,+Italy/Giau+Pass,+32046+San+Vito+di+Cadore,+Province+of+Belluno,+Italy/Posalz,+32020+Province+of+Belluno,+Italy/Arabba,+32020+Province+of+Belluno,+Italy/Feldthurns,+39040+Autonomous+Province+of+Bolzano+%E2%80%93+South+Tyrol,+Italy/Vipiteno,+39049+Autonomous+Province+of+Bolzano+%E2%80%93+South+Tyrol,+Italy/St.+Leonhard+in+Passeier,+39015+Autonomous+Province+of+Bolzano+%E2%80%93+South+Tyrol,+Italy/Prad+am+Stilfser+Joch,+39026+Autonomous+Province+of+Bolzano+%E2%80%93+South+Tyrol,+Italy/Bormio,+23032+Province+of+Sondrio,+Italy/@46.3986931,10.1068192,9.19z/data=!4m56!4m55!1m5!1m1!1s0x47783435d247033f:0xdd3c30437b92e42b!2m2!1d12.1358821!2d46.5378431!1m5!1m1!1s0x477849c8ddb4726f:0x6e338788d85b33c1!2m2!1d12.0541667!2d46.4830556!1m5!1m1!1s0x47784855fa0465b9:0x260709882e6cd391!2m2!1d12.027996!2d46.4605562!1m5!1m1!1s0x477840bf7fe10291:0xf0ca2ead5b73f431!2m2!1d11.8737721!2d46.497167!1m5!1m1!1s0x47780f1c3eab6507:0x9dbaba776416a3c2!2m2!1d11.5985522!2d46.6688657!1m5!1m1!1s0x479d5340912b4fed:0xeccf91de29d6fcf9!2m2!1d11.4321473!2d46.8963393!1m5!1m1!1s0x4782b160beea8745:0xbb916a6c1f1b80b6!2m2!1d11.24616!2d46.8127219!1m5!1m1!1s0x47831f0914ea67e3:0x6f1ea83185fac154!2m2!1d10.5912567!2d46.6170385!1m5!1m1!1s0x47830f7446b301db:0x932b43a63d97f711!2m2!1d10.371804!2d46.4685313!3e0" class="nav-link" style="background:#00796b;">🗺 Google Maps — Full Route</a>
-        <a href="waze://?ll=46.5378,12.1359&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Cortina)</a>
-      </div>
-    </div>
-  </section>
 
-  <section class="upload-section">
-    <h3>➕ Add a Route</h3>
-    <p>Share a Google Maps, Waze or Garmin map link — or upload a GPX or KML file.</p>
-    <p>The description is important. Tell me what it is and when it's happening. I will add it to the planning guide automatically.</p>
-    <p class="upload-hint">You should see the results in a few minutes.</p>
-    <a href="#" onclick="var w=window.open('tg://resolve?domain=StwagstaffBot','_self');setTimeout(function(){window.location='https://t.me/StwagstaffBot?text=This%20is%20a%20new%20proposed%20route%20for%20Euro%20Bike%20Blast%202026%3A%20';},500);return false;" class="upload-link">
-      📎 Open Telegram to share a map
-      <span>Paste a link or send a file — include a description</span>
-    </a>
-  </section>
+<!-- ═══════════════════════════════════════════ -->
+<!-- REGION: DOLOMITES                           -->
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="region-divider"><h3>Dolomites</h3></div>
+
+<!-- EXISTING CARD: Italy Dolomites & Stelvio combo -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>ITALY — DOLOMITES &amp; STELVIO <span class="badge badge-verified">VERIFIED</span></h2>
+    <p class="subtitle">Cortina d'Ampezzo · Giau Pass · Arabba · South Tyrol · Stelvio Pass · Bormio</p>
+    <p class="meta">~311 km · ~6.5h · Dolomites, Alpine passes, South Tyrol valley roads</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Cortina → Giau Pass → Arabba → Bolzano → Vipiteno → St. Leonhard → Prad am Stilfser Joch → Bormio</div>
+      <img src="thumb_italy_dolomites.png" alt="Italy Dolomites and Stelvio Pass motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">An epic Alpine stage linking two of Europe's greatest motorcycle roads. The route opens in Cortina d'Ampezzo — the jewel of the Dolomites — before climbing the legendary Giau Pass (2,236m), one of the most dramatic switchback roads in Italy. After sweeping through Arabba and the Sella Ronda circuit, the route drops into the South Tyrol (Alto Adige) for a long valley run north through Bolzano, Vipiteno and the Passeier Valley. The finale is Stelvio Pass (2,757m) — the highest paved road in the Alps — descending into Bormio for the night.</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Cortina · Arabba · Bolzano · Vipiteno · Bormio</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> Giau Pass: narrow road, livestock &amp; cyclists · Stelvio (SS38): heavy motorcycle traffic in summer, cold at summit even in July · South Tyrol valley roads: fast traffic, watch lane discipline</p>
+    <div class="links">
+      <a href="https://www.google.com/maps/dir/Cortina+d'Ampezzo,+32043+Province+of+Belluno,+Italy/Giau+Pass,+32046+San+Vito+di+Cadore,+Province+of+Belluno,+Italy/Posalz,+32020+Province+of+Belluno,+Italy/Arabba,+32020+Province+of+Belluno,+Italy/Feldthurns,+39040+Autonomous+Province+of+Bolzano+%E2%80%93+South+Tyrol,+Italy/Vipiteno,+39049+Autonomous+Province+of+Bolzano+%E2%80%93+South+Tyrol,+Italy/St.+Leonhard+in+Passeier,+39015+Autonomous+Province+of+Bolzano+%E2%80%93+South+Tyrol,+Italy/Prad+am+Stilfser+Joch,+39026+Autonomous+Province+of+Bolzano+%E2%80%93+South+Tyrol,+Italy/Bormio,+23032+Province+of+Sondrio,+Italy/@46.3986931,10.1068192,9.19z/data=!4m56!4m55!1m5!1m1!1s0x47783435d247033f:0xdd3c30437b92e42b!2m2!1d12.1358821!2d46.5378431!1m5!1m1!1s0x477849c8ddb4726f:0x6e338788d85b33c1!2m2!1d12.0541667!2d46.4830556!1m5!1m1!1s0x47784855fa0465b9:0x260709882e6cd391!2m2!1d12.027996!2d46.4605562!1m5!1m1!1s0x477840bf7fe10291:0xf0ca2ead5b73f431!2m2!1d11.8737721!2d46.497167!1m5!1m1!1s0x47780f1c3eab6507:0x9dbaba776416a3c2!2m2!1d11.5985522!2d46.6688657!1m5!1m1!1s0x479d5340912b4fed:0xeccf91de29d6fcf9!2m2!1d11.4321473!2d46.8963393!1m5!1m1!1s0x4782b160beea8745:0xbb916a6c1f1b80b6!2m2!1d11.24616!2d46.8127219!1m5!1m1!1s0x47831f0914ea67e3:0x6f1ea83185fac154!2m2!1d10.5912567!2d46.6170385!1m5!1m1!1s0x47830f7446b301db:0x932b43a63d97f711!2m2!1d10.371804!2d46.4685313!3e0" class="nav-link" style="background:#00796b;">🗺 Google Maps — Full Route</a>
+      <a href="waze://?ll=46.5378,12.1359&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Cortina)</a>
+    </div>
+  </div>
+</section>
+
+<!-- SELLA RONDA -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>SELLA RONDA <span class="badge badge-moderate">MODERATE</span></h2>
+    <p class="subtitle">Corvara · Passo Pordoi · Passo Sella · Passo Gardena · Passo Campolongo</p>
+    <p class="meta">52 km loop · ~2–3h · Four Dolomite passes, UNESCO World Heritage</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Corvara → Passo Campolongo → Arabba → Passo Pordoi → Canazei → Passo Sella → Selva → Passo Gardena → Corvara</div>
+      <img src="thumb_sella_ronda.png" alt="Sella Ronda loop map" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">A 52 km loop around the Sella massif crossing four of the most iconic passes in the Dolomites — Gardena (2,121m), Sella (2,218m), Pordoi (2,239m), and Campolongo (1,875m). The Sella Ronda is one of the great motorcycle circuits of Europe: UNESCO World Heritage scenery in every direction, vertical limestone towers and pink-lit cliffs at sunset. The passes are not technically demanding, but the combination of altitude, tight bends, and sheer spectacle makes it a full physical and visual experience. Ride midweek or in early June / late September to avoid heavy tourist traffic. Optional extension via Passo Valparola and Passo Falzarego toward Cortina d'Ampezzo adds ~50 km and two more passes.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> June to September · Weekdays · Early morning</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Canazei · Selva di Val Gardena · Corvara</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> Heavy tourist traffic July–August · Cyclists on all passes · Cold at summit even in summer</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/jJvNufJB" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Sella Ronda — SS242_SS48_SS243, Dolomites.gpx','Sella Ronda — SS242_SS48_SS243, Dolomites.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Corvara+in+Badia,+Italy/Passo+Campolongo/Arabba,+Italy/Passo+Pordoi/Canazei,+Italy/Passo+Sella/Selva+di+Val+Gardena,+Italy/Passo+Gardena/Corvara+in+Badia,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=46.5500,11.8740&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Corvara)</a>
+    </div>
+  </div>
+</section>
+
+<!-- PASSO GIAU -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>PASSO GIAU — SP638 <span class="badge badge-expert">ADVANCED</span></h2>
+    <p class="subtitle">Cortina d'Ampezzo · Passo Giau · Selva di Cadore</p>
+    <p class="meta">28 km · ~1h · Technical Dolomite hairpins, quieter than Sella Ronda</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Cortina d'Ampezzo → Passo Giau (2,236m) → Selva di Cadore</div>
+      <img src="thumb_passo_giau.png" alt="Passo Giau SP638 motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">The Dolomite pass that separates tourists from riders. Passo Giau (2,236m) climbs from Cortina d'Ampezzo on the SP638 — a narrower, more demanding road than the main Sella Ronda circuit with tight technical hairpins on the north side that require precision and commitment. The scenery is extraordinary: the Nuvolau massif and Cinque Torri rock formations frame a route that feels earned. Less crowded than the headline passes. Snow-closed well into spring — check before heading up in June. Pairs naturally with Passo Falzarego (2,105m), Passo Staulanza, and Passo Valparola for a 6-pass, ~120 km day.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> June to September · Check for ice on north-facing hairpins early season</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Cortina d'Ampezzo · Selva di Cadore</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> Tight technical hairpins on north descent · Ice risk early/late season · Narrow road — no overtaking room</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/nbMZOiqA" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Passo Giau — SP638, Dolomites_Veneto.gpx','Passo Giau — SP638, Dolomites_Veneto.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Cortina+d'Ampezzo,+Italy/Passo+Giau/Selva+di+Cadore,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=46.5369,12.1361&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Cortina)</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- REGION: ALPS                                -->
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="region-divider"><h3>Alps</h3></div>
+
+<!-- STELVIO PASS -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>STELVIO PASS — SS38 <span class="badge badge-expert">EXPERT</span></h2>
+    <p class="subtitle">Prato allo Stelvio · Stelvio Pass (2,757m) · Bormio</p>
+    <p class="meta">45 km · ~2h · Highest paved pass in the Eastern Alps, 48 hairpins</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Prato allo Stelvio → Trafoi → Stelvio Pass → Bormio</div>
+      <img src="thumb_stelvio.png" alt="Stelvio Pass SS38 motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">The bucket list. Built between 1820 and 1825, Stelvio Pass (2,757m) is the highest paved mountain pass in the Eastern Alps and one of the most famous roads on earth. The north ascent from Prato allo Stelvio via Trafoi climbs through pine forest and glaciers in 48 consecutive hairpins — a wall of tarmac that must be seen to be believed. The south descent into Bormio runs 36 hairpins through the Braulio Valley, including a stretch of unlit tunnels. Summit temperatures rarely exceed 10°C even in July. Arrive before 9am or after 5pm in July and August — midday brings tour buses, coaches, and half of Europe on two wheels. Optionally extends into Switzerland via the Umbrail Pass at the summit. Combine with Passo Gavia (43 km south) for a legendary two-pass day of ~90 km.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> June to early October · Before 9am or after 5pm in summer</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Prato allo Stelvio · Bormio</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> Heavy motorcycle and tour bus traffic July–August · Summit rarely above 10°C — bring layers · Unlit tunnels on south descent · No fuel between endpoints</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/xGASvquy" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Stelvio Pass — SS38, South Tyrol_Lombardy (1).gpx','Stelvio Pass — SS38, South Tyrol_Lombardy (1).gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Prato+allo+Stelvio,+Italy/Stelvio+Pass/Bormio,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=46.6190,10.5914&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Prato)</a>
+    </div>
+  </div>
+</section>
+
+<!-- PASSO GAVIA -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>PASSO GAVIA — SS300 <span class="badge badge-expert">EXPERT</span></h2>
+    <p class="subtitle">Ponte di Legno · Passo Gavia (2,618m) · Bormio</p>
+    <p class="meta">43 km · ~1.5h · Raw, high Alpine, near-zero guardrails</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Ponte di Legno → Passo Gavia (2,618m) → Bormio</div>
+      <img src="thumb_passo_gavia.png" alt="Passo Gavia SS300 motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">Raw, quiet, and genuinely intimidating — Passo Gavia is the side of the Alps the tour buses don't reach. The second-highest paved pass in Italy, SS300 climbs 17 km at an average 8% gradient from Ponte di Legno with pitches up to 16%. The road is barely wide enough for two vehicles in places. Near-zero guardrails. No services or cell coverage between endpoints. The south side has ~40 hairpins; the summit is bleak, wide, and surrounded by glacial silence. A small coffee bar operates seasonally at the top — don't count on it. A regular Giro d'Italia stage. Pairs perfectly with Stelvio Pass for a legendary ~90 km two-pass day — the greatest alpine riding combination in Italy. Offline maps essential.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> June to September · Road can retain snow patches into July</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Ponte di Legno · Bormio — no fuel between</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> Road width: single vehicle in places · Near-zero guardrails · No cell coverage · Gradients to 16% · Snow patches into early summer</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/ocfcEwEq" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Passo Gavia — SS300, Lombardy.gpx','Passo Gavia — SS300, Lombardy.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Ponte+di+Legno,+Italy/Passo+di+Gavia/Bormio,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=46.2579,10.5095&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Ponte di Legno)</a>
+    </div>
+  </div>
+</section>
+
+<!-- GRAN SAN BERNARDO -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>GRAN SAN BERNARDO — SS27 <span class="badge badge-moderate">MODERATE</span></h2>
+    <p class="subtitle">Aosta · Saint-Rhémy-en-Bosses · Gran San Bernardo Pass (2,469m)</p>
+    <p class="meta">34 km · ~1h · Italy–Switzerland Alpine crossing, 1,000-year-old hospice</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Aosta → Saint-Rhémy-en-Bosses → Gran San Bernardo Pass → Switzerland</div>
+      <img src="thumb_gran_san_bernardo.png" alt="Gran San Bernardo SS27 motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">One of the oldest Alpine crossings in existence — used since the Bronze Age and made famous by Napoleon's army crossing in 1800. The SS27 climbs from Aosta through the Valle d'Aosta in wide, well-maintained hairpins with open views and a relaxed, flowing character that makes it accessible without sacrificing grandeur. At the summit (2,469m), the Augustinian hospice has operated for over a thousand years — the original home of the St Bernard dog breed. A summit lake, restaurant, and museum sit at 2,469m. The pass crosses into Switzerland; extend into the Simplon Pass or loop back via Lötschberg tunnels for a multi-day Alpine tour. A natural, less intense counterpart to Stelvio for riders who want high-Alpine scenery without the combat riding.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> June to September · Snow-closed October–June</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Aosta · Saint-Rhémy-en-Bosses</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> Snow-closed outside season · Cold at summit · Currency changes at Swiss border</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/zCBHJWtH" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Passo del Gran San Bernardo — SS27, Valle d\'Aosta.gpx','Passo del Gran San Bernardo — SS27, Valle d\'Aosta.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Aosta,+Italy/Saint-Rhemy-en-Bosses,+Italy/Great+St+Bernard+Pass" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=45.7370,7.3150&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Aosta)</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- REGION: LAKE GARDA                          -->
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="region-divider"><h3>Lake Garda</h3></div>
+
+<!-- STRADA DELLA FORRA -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>STRADA DELLA FORRA — SP38 <span class="badge badge-moderate">MODERATE</span></h2>
+    <p class="subtitle">Porto di Tremosine · Pieve di Tremosine · Vesio</p>
+    <p class="meta">16 km core · ~30 min · James Bond canyon road, 350m above Lake Garda</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Porto di Tremosine → Gorge → Pieve di Tremosine (Terrazza del Brivido) → Vesio</div>
+      <img src="thumb_strada_forra.png" alt="Strada della Forra SP38 motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">Winston Churchill called it "the eighth wonder of the world." The Strada della Forra is 16 km of road carved directly into the Brasa River canyon — tight hairpins through dark rock tunnels draped in climbing plants, sudden full-width lake views, and a vertical drop below you most of the way. It featured in James Bond's <em>Quantum of Solace</em>. At the top, Pieve di Tremosine has the Terrazza del Brivido (Terrace of Shivers) — a glass-floor viewing platform 350m above the lake, accessible free through the Hotel Paradiso bar. The road reopened August 2025 after a rockfall closure and now operates a one-way system uphill from the lakeside junction to Pizzeria la Forra. Extend to 40 km by continuing on SP115 to Limone sul Garda for the full lakeside loop. Go weekdays only — no August.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> April–June, September–October · Weekdays only · No August</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Limone sul Garda (extend to lake loop) · Riva del Garda</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> One-way system — check current direction before riding · Dark unlit tunnels · Narrow road with sheer drops · Rockfall history</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/THkVJGEV" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Strada della Forra — SP38, Lake Garda.gpx','Strada della Forra — SP38, Lake Garda.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Porto+di+Tremosine,+Italy/Pieve+di+Tremosine,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=45.7686,10.7621&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Porto di Tremosine)</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- REGION: TUSCANY                             -->
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="region-divider"><h3>Tuscany</h3></div>
+
+<!-- VIA CHIANTIGIANA -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>VIA CHIANTIGIANA — SR222 <span class="badge badge-easy">EASY</span></h2>
+    <p class="subtitle">Florence · Greve in Chianti · Radda in Chianti · Siena</p>
+    <p class="meta">82 km · ~2h · Chianti wine country, rolling hills, cypress ridges</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Florence (Porta Romana) → Greve in Chianti → Panzano → Castellina → Radda → Siena</div>
+      <img src="thumb_chiantigiana.png" alt="Via Chiantigiana SR222 motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">The road through the heart of Chianti wine country — 82 km of smooth, flowing curves between Florence and Siena through vineyards, olive groves, cypress-lined ridges, and medieval hilltop villages. This is a touring road, not an attack road: relaxed rhythm, easy technicality, and remarkable scenery at every turn. Stop at Castello Vicchiomaggio between Greve and Panzano for wine and views; take pici with wild boar ragù in Radda in Chianti. Speed limits are enforced through villages. Extend south from Siena into the Crete Senesi — the dramatic clay badlands between Asciano and Buonconvento — for one of the most otherworldly landscapes in Italy. Suitable for any level of rider.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> April–June, September–November · Avoid August heat and harvest-season traffic</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Florence · Greve in Chianti · Siena</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> Speed cameras through villages · Harvest traffic September–October · Some unpaved farm access roads — stay on SR222</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/NNuXdjKl" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Via Chiantigiana — SR222, Tuscany.gpx','Via Chiantigiana — SR222, Tuscany.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Porta+Romana,+Florence,+Italy/Greve+in+Chianti,+Italy/Panzano+in+Chianti,+Italy/Radda+in+Chianti,+Italy/Siena,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=43.7590,11.2490&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Florence)</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- REGION: CAMPANIA                            -->
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="region-divider"><h3>Campania</h3></div>
+
+<!-- AMALFI COAST -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>AMALFI COAST — SS163 <span class="badge badge-moderate">MODERATE</span></h2>
+    <p class="subtitle">Vietri sul Mare · Amalfi · Ravello · Positano</p>
+    <p class="meta">50 km · ~2h · Clifftop coastal road, Tyrrhenian Sea, UNESCO World Heritage</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Vietri sul Mare → Cetara → Amalfi → Ravello (detour) → Positano</div>
+      <img src="thumb_amalfi.png" alt="Amalfi Coast SS163 motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">The Amalfitana (SS163) is one of the most iconic roads in Europe: 50 km of clifftop tarmac clinging to the Sorrentine Peninsula above the Tyrrhenian Sea, threading through whitewashed villages, lemon terraces, and sheer limestone drops. UNESCO World Heritage. Ride east to west — Vietri sul Mare to Positano — for sea on your left. A short detour via SS373 to Ravello (15 min) is worth every minute for the Duomo views and the silence above the crowds. There is an unmarked viewpoint ~1 km west of the Grotta dello Smeraldo car park that most riders miss. Do not ride July or August: the road becomes impassable with tour buses. Start at dawn in shoulder season. Tight blind corners and steep unguarded drops demand full attention throughout.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> April–May, September–October · Dawn start · Do NOT ride July–August</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Vietri sul Mare · Amalfi · Positano</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> Tour buses July–August — road essentially impassable · Tight blind bends with oncoming traffic · Steep unguarded drops · Pedestrians in village centres</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/KMoOGVRD" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Amalfi Coast — SS163, Campania.gpx','Amalfi Coast — SS163, Campania.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Vietri+sul+Mare,+Italy/Amalfi,+Italy/Ravello,+Italy/Positano,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=40.6674,14.7260&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Vietri)</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- REGION: SARDINIA                            -->
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="region-divider"><h3>Sardinia</h3></div>
+
+<!-- ORIENTALE SARDA -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>ORIENTALE SARDA — SS125 <span class="badge badge-moderate">MODERATE</span></h2>
+    <p class="subtitle">Dorgali · Baunei · Passo Ghenna Silana · Arbatax</p>
+    <p class="meta">60 km · ~1.5h · Sardinia's eastern coast, one of the finest roads in Europe</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Dorgali → Cala Gonone (optional detour) → Baunei → Passo Ghenna Silana → Arbatax</div>
+      <img src="thumb_orientale_sarda.png" alt="SS125 Orientale Sarda motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">One of the finest motorcycle roads in Europe — and largely unknown outside Italy. Sixty kilometres of continuous curves on flawless asphalt along the eastern flank of the Supramonte mountains, above the Gulf of Orosei and the wildest stretch of coastline in the Mediterranean. Chalk-white limestone peaks, dense maquis scrub, near-zero traffic outside summer. A short detour east through a tunnel near Dorgali drops to Cala Gonone for a panorama of the Gulf that justifies the whole detour. Stop at Passo Ghenna Silana for coffee and the commemorative t-shirts. Getting to Sardinia requires a ferry from Civitavecchia or Genoa to Olbia — build this into a multi-day island tour. Plan fuel carefully: there is a ~40 km gap with no petrol between Dorgali and Baunei.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> April–June, September–November · Avoid August crowds</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Dorgali · Baunei · Arbatax — ~40 km gap between Dorgali and Baunei, plan ahead</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> ~40 km fuel gap between Dorgali and Baunei · No cell coverage in places · Ferry required to reach Sardinia</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/XhzQijNk" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('SS125 Orientale Sarda — Dorgali to Arbatax, Sardinia.gpx','SS125 Orientale Sarda — Dorgali to Arbatax, Sardinia.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Dorgali,+Italy/Baunei,+Italy/Arbatax,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=40.2880,9.5920&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Dorgali)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ALGHERO TO BOSA -->
+<section class="day-card">
+  <div class="day-header">
+    <h2>ALGHERO TO BOSA — SP105 / SP49 <span class="badge badge-moderate">MODERATE</span></h2>
+    <p class="subtitle">Alghero · Coastal clifftop road · Bosa</p>
+    <p class="meta">45 km · ~1h · Most beautiful coastal road in the Mediterranean</p>
+  </div>
+  <div class="thumbs">
+    <div class="thumb-block">
+      <div class="thumb-label">Alghero → SP105 clifftop road → SP49 → Bosa</div>
+      <img src="thumb_alghero_bosa.png" alt="Alghero to Bosa SP105 SP49 motorcycle route" loading="lazy">
+    </div>
+  </div>
+  <div class="day-info">
+    <p class="prose">Consistently rated one of the most beautiful coastal roads in the Mediterranean. 45 km of clifftop tarmac above the sea with almost no development between endpoints — no towns, no petrol stations, no traffic lights. Flowing straights dissolve into technical cliff curves, and the Tyrrhenian stretches west to the horizon the entire way. About an hour without stops. Bosa at the southern end is a colourful pastel town on the Temo River — the only navigable river in Sardinia — worth an hour of wandering. The road reveals different details in each direction; riding it twice (there and back) is a legitimate strategy. For a full day, combine with SS129 through the Barbagia mountain interior toward Nuoro and loop back via SS131/SS291 for ~250 km of the island's best riding. No fuel between Alghero and Bosa.</p>
+    <p class="best-time">📅 <strong>Best time:</strong> April to November · Morning light heading south (Alghero to Bosa)</p>
+    <p class="fuel">⛽ <strong>Fuel:</strong> Alghero · Bosa — no fuel between</p>
+    <p class="hazards">⚠️ <strong>Hazards:</strong> No fuel between endpoints · Some cliff-edge sections with no barrier · Road designation changes at provincial border (SP105 → SP49 / SP206)</p>
+    <div class="links">
+      <a href="https://scenicapp.space/route/GnrSigNk" class="nav-link" style="background:#0d47a1;">🗺 Scenic App — Full Route</a>
+      <a href="#" onclick="downloadFile('Alghero to Bosa — SP105_SP49, Sardinia.gpx','Alghero to Bosa — SP105_SP49, Sardinia.gpx');return false;" class="nav-link" style="background:#1976d2;">⬇ Download GPX<span>Calimoto · Kurviger · Garmin</span></a>
+      <a href="https://www.google.com/maps/dir/Alghero,+Italy/Bosa,+Italy" class="nav-link" style="background:#00796b;">🗺 Google Maps</a>
+      <a href="waze://?ll=40.5580,8.3190&navigate=yes" class="nav-link" style="background:#6a1b9a;">🚨 Waze — Start (Alghero)</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ADD A ROUTE                                 -->
+<!-- ═══════════════════════════════════════════ -->
+
+<section class="upload-section">
+  <h3>➕ Add a Route</h3>
+  <p>Share a Google Maps, Waze or Garmin map link — or upload a GPX or KML file.</p>
+  <p>The description is important. Tell me what it is and when it's happening. I will add it to the planning guide automatically.</p>
+  <p class="upload-hint">You should see the results in a few minutes.</p>
+  <a href="#" onclick="var w=window.open('tg://resolve?domain=StwagstaffBot','_self');setTimeout(function(){window.location='https://t.me/StwagstaffBot?text=This%20is%20a%20new%20proposed%20route%20for%20Euro%20Bike%20Blast%202026%3A%20';},500);return false;" class="upload-link">
+    📎 Open Telegram to share a map
+    <span>Paste a link or send a file — include a description</span>
+  </a>
+</section>
 
 <footer><a href="https://github.com/stwagstaff/eurobike-blast-2026">MotoMap · Euro Bike Blast 2026</a></footer>
 </body>
