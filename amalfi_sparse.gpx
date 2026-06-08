@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="MotoMap">
+  <rte>
+    <name>amalfi</name>
+    <rtept lat="40.667400" lon="14.726000"><name>Route Start - Route Start</name></rtept>
+    <rtept lat="40.634000" lon="14.602600"><name>Via 1</name></rtept>
+    <rtept lat="40.628100" lon="14.484900"><name>Route End - Route End</name></rtept>
+  </rte>
+</gpx>

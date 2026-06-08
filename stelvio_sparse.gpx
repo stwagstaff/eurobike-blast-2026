@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="MotoMap">
+  <rte>
+    <name>stelvio</name>
+    <rtept lat="46.619000" lon="10.591400"><name>Route Start - Route Start</name></rtept>
+    <rtept lat="46.528500" lon="10.453300"><name>Via 1</name></rtept>
+    <rtept lat="46.468300" lon="10.371400"><name>Route End - Route End</name></rtept>
+  </rte>
+</gpx>

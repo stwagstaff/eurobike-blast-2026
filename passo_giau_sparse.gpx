@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="MotoMap">
+  <rte>
+    <name>passo_giau</name>
+    <rtept lat="46.536900" lon="12.136100"><name>Route Start - Route Start</name></rtept>
+    <rtept lat="46.483200" lon="12.052500"><name>Via 1</name></rtept>
+    <rtept lat="46.452500" lon="12.027200"><name>Route End - Route End</name></rtept>
+  </rte>
+</gpx>

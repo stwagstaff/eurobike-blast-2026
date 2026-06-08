@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="MotoMap">
+  <rte>
+    <name>passo_gavia</name>
+    <rtept lat="46.257900" lon="10.509500"><name>Route Start - Route Start</name></rtept>
+    <rtept lat="46.344700" lon="10.491700"><name>Via 1</name></rtept>
+    <rtept lat="46.468300" lon="10.371400"><name>Route End - Route End</name></rtept>
+  </rte>
+</gpx>

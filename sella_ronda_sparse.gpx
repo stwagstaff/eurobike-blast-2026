@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="MotoMap">
+  <rte>
+    <name>sella_ronda</name>
+    <rtept lat="46.550000" lon="11.874000"><name>Route Start - Route Start</name></rtept>
+    <rtept lat="46.508900" lon="11.759200"><name>Via 1</name></rtept>
+    <rtept lat="46.487200" lon="11.812800"><name>Via 2</name></rtept>
+    <rtept lat="46.550000" lon="11.874000"><name>Route End - Route End</name></rtept>
+  </rte>
+</gpx>

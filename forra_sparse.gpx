@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="MotoMap">
+  <rte>
+    <name>forra</name>
+    <rtept lat="45.768600" lon="10.762100"><name>Route Start - Route Start</name></rtept>
+    <rtept lat="45.789500" lon="10.758500"><name>Via 1</name></rtept>
+    <rtept lat="45.792000" lon="10.745000"><name>Route End - Route End</name></rtept>
+  </rte>
+</gpx>

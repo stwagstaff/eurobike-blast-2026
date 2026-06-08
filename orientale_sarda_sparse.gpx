@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="MotoMap">
+  <rte>
+    <name>orientale_sarda</name>
+    <rtept lat="40.288000" lon="9.592000"><name>Route Start - Route Start</name></rtept>
+    <rtept lat="40.034000" lon="9.667000"><name>Via 1</name></rtept>
+    <rtept lat="39.938000" lon="9.688000"><name>Route End - Route End</name></rtept>
+  </rte>
+</gpx>
